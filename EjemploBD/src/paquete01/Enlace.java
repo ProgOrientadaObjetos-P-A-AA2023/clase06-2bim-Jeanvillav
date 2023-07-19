@@ -21,6 +21,7 @@ public class Enlace {
      * @return 
     */
     private Connection conn;
+    ArrayList<Ciudad> lista = new ArrayList<>();
        
     public void establecerConexion() {  
 
@@ -59,8 +60,8 @@ public class Enlace {
         }  
     }
     
-    public ArrayList<Ciudad> obtenerDataCiudad() {  
-        ArrayList<Ciudad> lista = new ArrayList<>();
+    public void establecerDataCiudad() {  
+        
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
@@ -79,7 +80,12 @@ public class Enlace {
              System.out.println(e.getMessage());  
              
         }  
-        return lista;
+        
     }
+    
+    public ArrayList<Ciudad> obtenerLista(){
+        return lista;
+    } 
+    
      
 }  
